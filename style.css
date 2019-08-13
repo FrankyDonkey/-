@@ -17,3 +17,7 @@ display: block;
 color: white;
 font-family: ICELAND
 }
+A {
+width: 30;
+padding-left: 4
+}
