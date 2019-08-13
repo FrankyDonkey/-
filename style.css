@@ -1,3 +1,14 @@
 body{
-background-color: black
+background-color: black;
+text-align: center
+}
+.F{
+width: 30
+}
+pre{
+display: contents;
+color: white;
+font-size: 40;
+font-family: cursive;
+text-transform: uppercase
 }
