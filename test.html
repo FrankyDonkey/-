@@ -17,9 +17,49 @@
                               font-size: 120px;
                               text-align: center;
                               background-color: blue;}
-                      .div1:hover{transform: rotate(360deg);}</style>
+                      .div1:hover{transform: rotate(360deg);}
+                           .card{
+                                   width: 200px;
+     height: 50px;
+     position: relative;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+    -moz-transform-style: preserve-3d;
+    -moz-transition: 0.5s;
+    -ms-transform-style: preserve-3d;
+    -ms-transition: 0.5s;
+    -o-transform-style: preserve-3d;
+    -o-transition: 0.5s;
+                                   transition: 0.5s;}
+                      .front{background: red;
+                              z-index: 10;}
+                      .face{position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    line-height: 50px;
+                              text-align: center;}
+                      .back{
+                              transform: rotateY(180deg);
+                              background: green;}
+                </style>
         </head>
           <body>
           <div class="div1">هاي صحب</div>
+                  <div class="card">
+<div class="face front">
+هاي صحب
+</div>
+<div class="face back">
+باي صحب
+</div>
+<p></p></div>
           </body>
 </html>
