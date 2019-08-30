@@ -7,9 +7,9 @@
                       *{margin:0;padding:0;}
                       body{perspective:600px;text-align: center;border-top: solid;;border-bottom: solid;}
                       div{color:#fff}
-                      .div1{cursor: default;padding: 6px;position: relative;transition: all .5s ease-in-out;transform-style: preserve-3d;font-size: 300px;background-color: blue;z-index: 1;}
+                      .div1{cursor: default;padding: 6px;position: relative;transition: all .5s ease-in-out;transform-style: preserve-3d;font-size: 300px;background-color: blue;z-index: 1;backface-visibility: hidden;}
                       .div1:hover{transform: rotate(180deg);}
-                      .div2{cursor: default;padding: 6px;position: absolute;left: 0;top: 0;bottom: 0;right: 0;font-size: 300px;background-color: black;}
+                      .div2{cursor: default;padding: 6px;position: absolute;left: 0;top: 0;bottom: 0;right: 0;font-size: 300px;background-color: black;backface-visibility: hidden;transform: rotate(180deg);}
               </style>
         </head>
           <body>
