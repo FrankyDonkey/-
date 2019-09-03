@@ -1,0 +1,185 @@
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One);
+
+// The colors, children!
+$color-bg: #FFF9F2;
+$color-blue: #00B4FF;
+$color-gray-dark: #515151;
+
+$color-hexagon: $color-blue;
+$color-circle: $color-gray-dark;
+
+$font-header: 'Fredoka One', sans-serif;
+
+// Hexagon dimensions
+$hex-width: 80px;
+$hex-height: 46.19px;
+$hex-border-TB: 23.09px;
+$hex-border-LR: 40px;
+
+// Circle dimensions
+$circle-size: 24px;
+
+body {
+  height: 100%;
+  padding: 0 24px;
+  margin: 0;
+  color: $color-circle;
+  background-color: $color-bg;
+  overflow: hidden;
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 63px auto;
+  transition: transform 0.8s 0.61s ease-out;
+}
+
+.hexagon {
+  position: relative;
+  width: $hex-width; 
+  height: $hex-height;
+  margin: auto;
+  background-color: $color-hexagon;
+  transform: translateZ(0);
+  z-index: 2;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: $hex-border-LR solid transparent;
+    border-right: $hex-border-LR solid transparent;
+  }
+  &:before {
+    bottom: 100%;
+    border-bottom: $hex-border-TB solid $color-hexagon;
+  }
+  &:after {
+    top: 100%;
+    width: 0;
+    border-top: $hex-border-TB solid $color-hexagon;
+  }
+}
+
+.circle {
+  position: absolute;
+  bottom: -$circle-size/2;
+  right: -$circle-size/2;
+  margin: auto;
+  width: $circle-size;
+  height: $circle-size;
+  background-color: $color-circle;
+  border-radius: 100%;
+  z-index: 3;
+  box-shadow: $color-bg 0 0 0 4px;
+}
+
+h1 {
+  opacity: 0;
+  position: relative;
+  font-family: $font-header;
+  font-size: 36px;
+  text-align: center;
+  margin: 30px 0 60px;
+  transform: translateY(24px);
+  transition: transform 0s 1.42s ease-out,
+    opacity 0s 1.42s ease-out;
+  z-index: 1;
+  span {
+    color: $color-blue;
+  }
+  .open & {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.4s 0.5s ease-out,
+    opacity 0.6s 0.5s ease-out;
+  }
+}
+
+.panel {
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  background-color: $color-blue;
+  z-index: 6;
+  visibility: visible;
+  transition: transform 0.6s ease-in-out,
+    opacity 0.8s 0.61s ease-out;
+  &.left {
+    left: 0;
+    &:before {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      margin: auto;
+      content: '';
+      border-right: 40px solid $color-bg;
+      border-top: 23px solid transparent;
+      border-bottom: 23px solid transparent;
+      height: 46px;
+      width: 0;
+    }
+  }
+  &.right {
+    right: 0;
+    &:before {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      margin: auto;
+      content: '';
+      border-left: 40px solid $color-bg;
+      border-top: 23px solid transparent;
+      border-bottom: 23px solid transparent;
+      height: 46px;
+      width: 0;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: -46px;
+      left: 28px;
+      margin: auto;
+      width: $circle-size;
+      height: $circle-size;
+      background-color: $color-bg;
+      border-radius: 100%;
+      z-index: 3;
+      box-shadow: $color-blue 0 0 0 4px;
+    }
+  }
+}
+
+.open .panel {
+  opacity: 0.2;
+  transition: transform 0.6s ease-in-out,
+    opacity 0s 0.61s ease-out;
+  &.left {
+    transform: translate3d(-100%,0,0);
+  }
+  &.right {
+    transform: translate3d(100%,0,0);
+  }
+}
+
+button {
+  cursor: pointer;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  color: white;
+  background-color: transparent;
+  padding: 0 24px;
+  font-size: 18px;
+  border: 0;
+  z-index: 6;
+  border-radius: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:focus {
+    outline: none;
+  }
+}
